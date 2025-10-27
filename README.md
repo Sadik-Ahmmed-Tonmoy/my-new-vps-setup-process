@@ -143,13 +143,27 @@ Open Nginx configuration:
   ### Change server_name(can use ip also, example: server_name 31.97.139.151)
   ### Change proxy_pass(change the port number, example:  proxy_pass  http://localhost:5075;)
 
-<pre><code id="example-code">server{ listen 80; server_name api.myfinancialtrading.com; location / { proxy_pass http://localhost:3000; proxy_set_header Host $host; proxy_set_header X-Forwarded-Host $host; proxy_set_header X-Forwarded-Proto $scheme; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; } }</code></pre>
+<pre>
+server{
+        listen 80;
+        server_name api.myfinancialtrading.com;
 
+        location / {
+                proxy_pass  http://localhost:3000;
+            # Add other proxy settings if needed
+               proxy_set_header Host $host;
+               proxy_set_header X-Forwarded-Host $host;
+               proxy_set_header X-Forwarded-Proto $scheme;
+               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        }
+     }  
+</pre>
+<pre>
 Save & exit:
     press : ctrl + o ( ^O Write Out)
     press : Enter
     press ctrl + x (^X Exit )
-    
+</pre>
 
 Enable configuration:
 
