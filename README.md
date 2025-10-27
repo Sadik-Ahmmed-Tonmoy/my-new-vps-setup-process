@@ -2,22 +2,22 @@
 
 Complete guide to set up a VPS with Node.js, Nginx, MongoDB, PM2, and SSL.
 
-###STEP 1 — Connect to VPS
+### STEP 1 — Connect to VPS
 <pre><code id="example-code">ssh root@your_ip_adress</code></pre>
 
 Then enter your password.
 
-###STEP 2 — Update Packages
+### STEP 2 — Update Packages
 <pre><code id="example-code"> sudo apt update </code></pre> <pre><code id="example-code"> sudo apt upgrade </code></pre>
 
-###STEP 3 — Enable & Configure UFW (Firewall)
+### STEP 3 — Enable & Configure UFW (Firewall)
 <pre><code id="example-code"> sudo ufw enable </code></pre> <pre><code id="example-code"> sudo ufw allow 22 </code></pre>
 
 Check allowed ports:
 
 <pre><code id="example-code"> sudo ufw status </code></pre>
 
-###STEP 4 — Install NVM & Node.js
+### STEP 4 — Install NVM & Node.js
 
 Install NVM:
 
@@ -41,7 +41,7 @@ Restart terminal and check:
 
 ⚠️ If versions don’t show, close and reopen the terminal.
 
-###STEP 5 — GitHub SSH Connection
+### STEP 5 — GitHub SSH Connection
 
 Check existing SSH keys:
 
@@ -65,7 +65,7 @@ Test connection:
 
 <pre><code id="example-code"> ssh -T git@github.com </code></pre>
 
-###STEP 6 — Setup Nginx
+### STEP 6 — Setup Nginx
 Setup nginx 
 <pre>
   <code id="example-code">
@@ -119,7 +119,7 @@ Setup nginx
 </pre>
 
 
-###STEP 7 — Configure Nginx for Next.js (Frontend)
+### STEP 7 — Configure Nginx for Next.js (Frontend)
 <pre><code id="example-code"> sudo nano /etc/nginx/sites-available/yourdomain.com </code></pre>
 
 Paste:
@@ -129,7 +129,7 @@ Paste:
 Enable configuration:
 
 <pre><code id="example-code"> sudo ln -s /etc/nginx/sites-available/yourdomain.com /etc/nginx/sites-enabled sudo nginx -t sudo systemctl reload nginx </code></pre>
-###STEP 8 — Configure Nginx for Backend
+### STEP 8 — Configure Nginx for Backend
 <pre><code id="example-code"> sudo nano /etc/nginx/sites-available/yourdomain.com </code></pre>
 
 Paste:
@@ -144,7 +144,7 @@ Enable configuration:
 
 <pre><code id="example-code"> sudo ln -s /etc/nginx/sites-available/api.yourdomain.com /etc/nginx/sites-enabled sudo nginx -t sudo systemctl reload nginx </code></pre>
 
-###STEP 9 — Install Project & Setup
+### STEP 9 — Install Project & Setup
 <pre><code id="example-code"> cd /var/www git clone <git repository using ssh> cd project-name npm install npm run build npm run dev # Test if running properly </code></pre>
 
 Stop local dev:
@@ -167,7 +167,7 @@ Allow new port:
 
 <pre><code id="example-code"> sudo ufw allow <PORT> </code></pre>
 
-###STEP 10 — Run with PM2
+### STEP 10 — Run with PM2
 <pre><code id="example-code"> npm install -g pm2 pm2 --version pm2 start npm --name "project-frontend" -- start # Next.js frontend pm2 start dist/server.js --name project-backend # Backend pm2 list pm2 startup pm2 save pm2 restart all </code></pre>
 
 Check logs:
@@ -186,10 +186,10 @@ Stop/Delete server:
 
 <pre><code id="example-code"> pm2 stop nextjs-app pm2 delete nextjs-app </code></pre>
 
-###STEP 11 — Install SSL
+### STEP 11 — Install SSL
 <pre><code id="example-code"> sudo apt install certbot python3-certbot-nginx -y sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com </code></pre>
 
-###STEP 12 — Install MongoDB with Prisma ORM
+### STEP 12 — Install MongoDB with Prisma ORM
 
 Ubuntu 22.04 → MongoDB 8.0
 Ubuntu 22.00 → MongoDB 6.0
