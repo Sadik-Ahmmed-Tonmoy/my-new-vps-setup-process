@@ -3,7 +3,7 @@
 Complete guide to set up a VPS with Node.js, Nginx, MongoDB, PM2, and SSL.
 
 STEP 1 — Connect to VPS
-<pre><code id="example-code"> ssh root@your_ip_adress </code></pre>
+<pre><code id="example-code">ssh root@your_ip_adress</code></pre>
 
 Then enter your password.
 
