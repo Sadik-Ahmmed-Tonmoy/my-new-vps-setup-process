@@ -178,23 +178,32 @@ Enable configuration:
 
 Clone project:
 
-<pre>cd /var/www git clone <git repository using ssh> cd project-name npm install npm run build npm run dev # Test if running properly</pre>
+<pre>cd /var/www 
+  git clone <git repository using ssh> 
+    cd project-name 
+    npm install 
+    npm run build 
+    npm run dev # Test if running properly</pre>
 
 Stop local dev:
-
-<pre><code id="example-code">CTRL + Z</code></pre>
+<pre>CTRL + Z</pre>
 
 If port already in use:
 
 Change PORT in .env
 
 Commit & push:
-
-<pre><code id="example-code">git add . git commit -m "Changed port" git push</code></pre>
+<pre>
+  git add . 
+  git commit -m "Changed port" 
+  git push
+</pre>
 
 Pull, install, build:
 
-<pre><code id="example-code">git pull npm install npm run build</code></pre>
+<pre><code id="example-code">git pull</code></pre>
+<pre><code id="example-code">npm install</code></pre>
+<pre><code id="example-code">npm run build</code></pre>
 
 Allow new port:
 
@@ -203,15 +212,27 @@ Allow new port:
 
 Install & start:
 
-<pre><code id="example-code">npm install -g pm2 pm2 --version pm2 start npm --name "project-frontend" -- start # Next.js frontend pm2 start dist/server.js --name project-backend # Backend pm2 list pm2 startup pm2 save pm2 restart all</code></pre>
+<pre><code id="example-code">npm install -g pm2</code></pre>
+<pre><code id="example-code">pm2 --version</code></pre>
+For Frontend: <pre><code id="example-code">pm2 start npm --name "replace-with-project-name" -- start</code></pre>
+For Backend: <pre><code id="example-code">pm2 start dist/server.js --name "replace-with-project-name"</code></pre>
+<pre><code id="example-code">pm2 list</code></pre>
+<pre><code id="example-code">pm2 startup</code></pre>
+<pre><code id="example-code">pm2 save</code></pre>
+<pre><code id="example-code">pm2 restart all</code></pre>
 
 Check logs:
 
 <pre><code id="example-code">pm2 logs</code></pre>
 
 If error:
+#Replace PORT number
+<pre><code id="example-code">sudo lsof -i :"PORT"</code></pre>
+#Replace PID code
+<pre><code id="example-code">sudo kill -9 "PID CODE"</code></pre>
 
-<pre><code id="example-code">sudo lsof -i :<PORT> sudo kill -9 PID pm2 logs</code></pre>
+Check logs:
+<pre><code id="example-code">pm2 logs</code></pre>
 
 Test deployment:
 
