@@ -134,19 +134,32 @@ Enable configuration:
 
 Open Nginx configuration:
 
+ # Must replace the domain url, can use name also
+ (example: sudo nano /etc/nginx/sites-available/kamodoc_backend)
+ 
 <pre><code id="example-code">sudo nano /etc/nginx/sites-available/yourdomain.com</code></pre>
 
-Paste:
+
+  ### Change server_name(can use ip also, example: server_name 31.97.139.151)
+  ### Change proxy_pass(change the port number, example:  proxy_pass  http://localhost:5075;)
 
 <pre><code id="example-code">server{ listen 80; server_name api.myfinancialtrading.com; location / { proxy_pass http://localhost:3000; proxy_set_header Host $host; proxy_set_header X-Forwarded-Host $host; proxy_set_header X-Forwarded-Proto $scheme; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; } }</code></pre>
 
 Save & exit:
-
-<pre><code id="example-code">ctrl + o (Write Out) Enter ctrl + x (Exit)</code></pre>
+    press : ctrl + o ( ^O Write Out)
+    press : Enter
+    press ctrl + x (^X Exit )
+    
 
 Enable configuration:
 
-<pre><code id="example-code">sudo ln -s /etc/nginx/sites-available/api.yourdomain.com /etc/nginx/sites-enabled sudo nginx -t sudo systemctl reload nginx</code></pre>
+ ### Must replace the domain url, exactly used for sites-available start up 
+   (example: sudo ln -s /etc/nginx/sites-available/kamodoc_backend /etc/nginx/sites-enabled)
+   
+<pre><code id="example-code">sudo ln -s /etc/nginx/sites-available/api.yourdomain.com /etc/nginx/sites-enabled</code></pre>
+<pre><code id="example-code">sudo nginx -t</code></pre>
+<pre><code id="example-code">sudo systemctl reload nginx</code></pre>
+
 ### 🔹 STEP 9 — Install Project & Setup
 
 Clone project:
