@@ -119,7 +119,7 @@ Test connection:
 ### 🔹 STEP 7 — Configure Nginx for Next.js (Frontend)
 
 Open Nginx configuration:
- ### Must replace the domain url, can use name also(example: sudo nano /etc/nginx/sites-available/kamodoc_backend)
+ # Must replace the domain url, can use name also(example: sudo nano /etc/nginx/sites-available/kamodoc_backend)
 <pre><code id="example-code">sudo nano /etc/nginx/sites-available/yourdomain.com</code></pre>
 
 Paste:
