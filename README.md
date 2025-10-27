@@ -178,7 +178,7 @@ Enable configuration:
 
 Clone project:
 
-<pre><code id="example-code">cd /var/www git clone <git repository using ssh> cd project-name npm install npm run build npm run dev # Test if running properly</code></pre>
+<pre>cd /var/www git clone <git repository using ssh> cd project-name npm install npm run build npm run dev # Test if running properly</pre>
 
 Stop local dev:
 
